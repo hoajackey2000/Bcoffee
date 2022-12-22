@@ -21,9 +21,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="logo text-center" style="margin-bottom: 20px; padding-top: 30px;">
-                        {{-- <img src="{{asset('assets/front/img/' . $bs->logo)}}" alt=""> --}}
-
-                        <img src="{{str_replace ( 'core' , '' , base_path() ) . 'assets/front/img/' . $bs->logo}}" alt="">
+                        <img src="{{'assets/front/img/' . $bs->logo}}" alt="" style="width: 200px; height:200px;">
                     </div>
                     <div class="confirmation-message bg-primary" style="padding: 5px 0px;margin-bottom: 40px;">
                         <h2 class="text-center"><strong>{{__('ORDER INVOICE')}}</strong></h2>
@@ -53,7 +51,11 @@
                                   <tr>
                                     <th scope="row">{{__('Payment Status')}}:</th>
                                     <td class="text-capitalize">
-                                       {{$order->payment_status}}
+                                        @if($order->payment_status =='Pending')
+                                            {{__('UnPaid')}}  
+                                        @else
+                                            {{__('Paid')}} 
+                                        @endif
                                     </td>
                                   </tr>
                                   @if (!empty($order->shipping_method))
@@ -67,13 +69,13 @@
                                   <tr>
                                     <th scope="row">{{__('Shipping Charge')}}:</th>
                                     <td class="text-capitalize">
-                                      <span>{{$be->base_currency_text_position == 'left' ? $be->base_currency_text : ''}}</span> {{$order->shipping_charge}} <span>{{$be->base_currency_text_position == 'right' ? $be->base_currency_text : ''}}</span>
+                                      <span>{{$be->base_currency_text_position == 'left' ? $be->base_currency_text : ''}}</span> {{number_format($order->shipping_charge,0,',','.')}} <span>{{$be->base_currency_text_position == 'right' ? $be->base_currency_text : ''}}</span>
                                     </td>
                                   </tr>
                                   <tr>
                                     <th scope="row">{{__('Grand Total')}}:</th>
                                     <td class="text-capitalize">
-                                        <span>{{$be->base_currency_text_position == 'left' ? $be->base_currency_text : ''}}</span>  {{$order->total}} <span>{{$be->base_currency_text_position == 'right' ? $be->base_currency_text : ''}}</span>
+                                        <span>{{$be->base_currency_text_position == 'left' ? $be->base_currency_text : ''}}</span>  {{number_format($order->total,0,',','.')}} <span>{{$be->base_currency_text_position == 'right' ? $be->base_currency_text : ''}}</span>
                                     </td>
                                   </tr>
                                 </tbody>
@@ -173,14 +175,12 @@
                                 <tr>
                                     <th>{{$key+1}}</th>
                                     <td>
-                    <img src="{{asset('assets/front/img/product/featured/'.$item->image)}}" lt="image" width="100">
-
-                                        {{-- <img src="{{str_replace ( 'core' , '' , base_path() ) . 'assets/front/img/product/featured/'.$item->image}}" alt="image" width="100"> --}}
+                                        <img src="{{'assets/front/img/product/featured/'.$item->image}}" alt="image" width="100">
                                     </td>
                                     <td>{{$item->title}}</td>
-                                    <td><span>{{$order->currency_code_position == 'left' ? $order->currency_code : ''}}</span> {{$item->price}} <span> {{$order->currency_code_position == 'right' ? $order->currency_code : ''}}</span></td>
+                                    <td><span>{{$order->currency_code_position == 'left' ? $order->currency_code : ''}}</span> {{number_format($item->price,0,',','.')}} <span> {{$order->currency_code_position == 'right' ? $order->currency_code : ''}}</span></td>
                                     <td>{{$item->qty}}</td>
-                                    <td><span>{{$order->currency_code_position == 'left' ? $order->currency_code : ''}}</span> {{$item->price * $item->qty}} <span>{{$order->currency_code_position == 'right' ? $order->currency_code : ''}}</span></td>
+                                    <td><span>{{$order->currency_code_position == 'left' ? $order->currency_code : ''}}</span> {{number_format($item->price * $item->qty,0,',','.')}} <span>{{$order->currency_code_position == 'right' ? $order->currency_code : ''}}</span></td>
 
                                   </tr>
                                 @endforeach

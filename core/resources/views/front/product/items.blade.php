@@ -154,7 +154,7 @@
                                 </h3>
                                 <a href="{{route('front.product.details',[$product->slug,$product->id])}}"><span>{{convertUtf8($product->title)}}</span></a>
                                 <p> {{convertUtf8(strlen($product->summary)) > 48 ? convertUtf8(substr($product->summary, 0, 48)) . '...' : convertUtf8($product->summary)}}</p>
-                                <a class="main-btn cart-link" data-href="{{route('add.cart',$product->id)}}">{{__('Add To Cart')}}</a>
+                                <a class="main-btn cart-link" data-href="{{route('add.cart',$product->id)}}">{{__('Add to Cart')}}</a>
                             </div>
                         </div>
                         @endforeach

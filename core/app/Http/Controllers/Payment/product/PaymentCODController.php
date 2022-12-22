@@ -234,7 +234,7 @@ class PaymentCODController extends Controller
             $fileName = Str::random(4) . time() . '.pdf';
             $path = 'assets/front/invoices/product/' . $fileName;
             $data['order']  = $order;
-            // $pdf = PDF::loadView('pdf.product', $data);
+            $pdf = PDF::loadView('pdf.product', $data);
          
             // return $pdf->stream( 'pdf.product.pdf' )->header('Content-Type','application/pdf');
             $pdf->save($path);

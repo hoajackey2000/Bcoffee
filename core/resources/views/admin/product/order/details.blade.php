@@ -37,9 +37,9 @@
                      </div>
                      <div class="col-lg-6">
                          @if($order->payment_status =='Pending' || $order->payment_status == 'pending')
-                         <span class="badge badge-danger">{{convertUtf8($order->payment_status)}}  </span>
+                         <span class="badge badge-danger">{{__('UnPaid')}}  </span>
                          @else
-                         <span class="badge badge-success">{{convertUtf8($order->payment_status)}}  </span>
+                         <span class="badge badge-success">{{__('Paid')}}  </span>
                          @endif
                      </div>
                  </div>
@@ -50,13 +50,13 @@
                      </div>
                      <div class="col-lg-6">
                          @if ($order->order_status == 'pending')
-                         <span class="badge badge-warning">{{convertUtf8($order->order_status)}}  </span>
+                         <span class="badge badge-warning">{{__('Pending')}}  </span>
                          @elseif ($order->order_status == 'processing')
-                         <span class="badge badge-primary">{{convertUtf8($order->order_status)}}  </span>
+                         <span class="badge badge-primary">{{__('Processing')}}  </span>
                          @elseif ($order->order_status == 'completed')
-                         <span class="badge badge-success">{{convertUtf8($order->order_status)}}  </span>
+                         <span class="badge badge-success">{{__('Completed')}}  </span>
                          @elseif ($order->order_status == 'reject')
-                         <span class="badge badge-danger">{{convertUtf8($order->order_status)}}  </span>
+                         <span class="badge badge-danger">{{__('Reject')}}  </span>
                          @endif
                      </div>
                  </div>

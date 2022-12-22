@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="shop-btns pt-45">
-                            <a data-href="{{route('add.cart',$product->id)}}" class="main-btn-2 main-btn cart-link ">{{__('Add To Cart')}}  <i class="fa fa-shopping-basket"></i></a>
+                            <a data-href="{{route('add.cart',$product->id)}}" class="main-btn-2 main-btn cart-link ">{{__('Add to Cart')}}  <i class="fa fa-shopping-basket"></i></a>
                             <form class="d-inline-block ml-2" method="GET" action="{{route('front.product.checkout',$product->slug)}}">
                                 <input type="hidden" value="" name="qty" id="order_click_with_qty">
                             </form>

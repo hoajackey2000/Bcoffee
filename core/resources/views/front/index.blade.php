@@ -208,7 +208,7 @@
                                                         <p>{{convertUtf8(strlen($product->summary)) > 70 ? convertUtf8(substr($product->summary, 0, 70)) . '...' : convertUtf8($product->summary)}} </p>
                                                     </div>
                                                     <div class="menu-price-btn">
-                                                        <a class="cart-link" data-href="{{route('add.cart',$product->id)}}">{{__('Thêm vào giỏ hàng')}}</a>
+                                                        <a class="cart-link" data-href="{{route('add.cart',$product->id)}}">{{__('Add to Cart')}}</a>
 
                                                         <span>{{$be->base_currency_symbol_position == 'left' ? $be->base_currency_symbol : ''}}{{convertUtf8(number_format($product->current_price,0,',','.'))}}{{$be->base_currency_symbol_position == 'right' ? $be->base_currency_symbol : ''}}
                                                         </span>
@@ -358,7 +358,7 @@
                                     <p>{{convertUtf8(strlen($sproduct->summary)) > 70 ? convertUtf8(substr($sproduct->summary,0, 70)) . '...' : convertUtf8($sproduct->summary)}}</p>
                                     <img src="{{asset('assets/front/img/product/featured/'.$sproduct->feature_image)}}" alt="">
                                     <div class="special-btns">
-                                        <a class="cart-link" data-href="{{route('add.cart',$sproduct->id)}}">{{__('Add To Cart')}}</a>
+                                        <a class="cart-link" data-href="{{route('add.cart',$sproduct->id)}}">{{__('Add to Cart')}}</a>
                                     </div>
                                 </div>
                             @endforeach

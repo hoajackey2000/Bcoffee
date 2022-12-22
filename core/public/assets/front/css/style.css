@@ -422,7 +422,7 @@ p {
 
 @media (max-width: 767px) {
   .navigation.sticky {
-    padding: 20px 0;
+    padding: 26px 0;
   }
 }
 
@@ -4586,7 +4586,7 @@ h3.subscribe-title::after {
 }
 
 .pricing-area .single-pricing a.main-btn {
-  border-color: #f2f2f2;
+  border-color: #ff6633;
   color: #000000;
   background-color: transparent;
   line-height: 55px;
@@ -8472,6 +8472,12 @@ a.a2a_dd.plus i {
 }
 .mr-3, .mx-3 {
   margin-right: 0.25rem!important;
+}
+.col-lg-6 {
+  margin-top: 10px;
+}
+i.fa.fa-shopping-basket {
+  color: #ffffff;
 }
 /* @media (min-width: 1200px){
   .container-slider {
